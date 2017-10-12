@@ -1,0 +1,28 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.sidebar {
+    float: left;
+    width: 30%;
+    min-width: 200px;
+    max-width: 400px;
+    background: rgba(71, 135, 198, 0.5);
+    min-height: 100%;
+}
+
+.sidebar h1 {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.rooms {
+    padding-left: 18%;
+    padding-right: 15%;
+    text-decoration-color: rgb(0, 0, 0, 0.5);
+}
+
+/*.rooms a:hover {
+    text-decoration-color: rgb(0, 0, 0);
+}*/
