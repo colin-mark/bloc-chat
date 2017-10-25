@@ -4,5 +4,6 @@
       <div class="rooms" ng-repeat="room1 in room.rooms track by $index">
           <h3><a class="text-muted" ui-sref="room-button">{{ room1.$value }}</a></h3>
       </div>
+      <button type="button" class="btn btn-default" ng-click="room.open('lg')">Add Room</button>
     </div>
 </nav>
