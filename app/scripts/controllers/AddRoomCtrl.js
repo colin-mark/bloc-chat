@@ -1,7 +1,6 @@
 (function() {
     function AddRoomCtrl(Room, $uibModalInstance) {
         var $ctrl = this;
-        // $ctrl.addroom = Room.add;
 
         $ctrl.addButton = function () {
             $uibModalInstance.close($ctrl.newroom);

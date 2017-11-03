@@ -1,23 +1,28 @@
 (function() {
-    function RoomCtrl(Room, $uibModal) {
+    function RoomCtrl(Room, Message, $uibModal) {
         var $ctrl = this;
         $ctrl.rooms = Room.all;
-        $ctrl.open = function () {
-          var modalInstance = $uibModal.open({
-            templateUrl: '/templates/addroom.html',
-            controller: 'AddRoomCtrl',
-            controllerAs: '$ctrl'
-          });
+        $ctrl.messages;
 
-          modalInstance.result.then(function (roomName) {
-            Room.add(roomName);
-          }, function () {
-            // $log.info('Modal dismissed at: ' + new Date());
-          });
+        $ctrl.getRoom = function (roomId) {
+            $ctrl.messages = Message.getByRoomId(roomId);;
+            console.log($ctrl.messages)
+        };
+
+        $ctrl.open = function () {
+            var modalInstance = $uibModal.open({
+                templateUrl: '/templates/addroom.html',
+                controller: 'AddRoomCtrl',
+                controllerAs: '$ctrl'
+            });
+
+            modalInstance.result.then(function (roomName) {
+                Room.add(roomName);
+            });
         };
     }
 
     angular
         .module('blocChat')
-        .controller('RoomCtrl', ['Room', '$uibModal', RoomCtrl]);
+        .controller('RoomCtrl', ['Room', 'Message', '$uibModal', RoomCtrl]);
 })();
