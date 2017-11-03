@@ -2,11 +2,11 @@
     function RoomCtrl(Room, Message, $uibModal) {
         var $ctrl = this;
         $ctrl.rooms = Room.all;
-        $ctrl.messages;
+        $ctrl.messages = [];
 
         $ctrl.getRoom = function (roomId) {
             $ctrl.messages = Message.getByRoomId(roomId);;
-            console.log($ctrl.messages)
+            console.log(roomId, $ctrl.messages)
         };
 
         $ctrl.open = function () {

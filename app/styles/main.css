@@ -31,10 +31,10 @@ html, body, .container-fluid, #main-row {
     overflow: hidden;
 }
 
-.col-md-8 table {
+/*.col-md-8 table {
     background-color: #D4D4D4;
     width: 100%;
-}
+}*/
 
 /*.col-md-8, .messages {
     width: 65%
@@ -62,4 +62,12 @@ html, body, .container-fluid, #main-row {
     position: fixed;
     vertical-align: middle;
     right: 1cm;
+}
+
+.col-md-8 tr:nth-child(even) {
+    background: #000,
+}
+
+.col-md-8 tr:nth-child(odd) {
+    background: #fff
 }

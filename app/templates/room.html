@@ -11,10 +11,10 @@
     <div class="col-md-8 messages">
         <h2>Room 1</h2>
         <table class="table-responsive" id="table-row">
-            <tr class="message-row">
-                <td class="username"><h4>Username</h4></td>
-                <td class="message-sent">Hey I'm Colin</td>
-                <td class="time-sent">4:40pm</td>
+            <tr class="message-row" ng-repeat="message in room.messages track by $index">
+                <td class="username"><h4>{{ message.username }}</h4></td>
+                <td class="message-sent">{{ message.content }}</td>
+                <td class="time-sent">{{ message.sentAt }}</td>
             </tr>
         </table>
     </div>
