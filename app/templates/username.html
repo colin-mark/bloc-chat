@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h3>Create a New Username</h3>
+</div>
+<form name="$ctrl.form.userForm" ng-submit="$ctrl.addButton()" novalidate>
+    <div class="modal-body">
+        <div class="form-group">
+            <input type="text" name="username" class="form-control" placeholder="Enter a Username" ng-model="$ctrl.username" ng-minlength="3" ng-maxlength="8" required>
+            <p ng-show="$ctrl.form.userForm.username.$error.minlength" class="help-block">Username is too short.</p>
+            <p ng-show="$ctrl.form.userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" ng-disabled="form.userForm.$invalid" ng-click="$ctrl.addButton()">Add Username</button>
+    </div>
+</form>
