@@ -1,12 +1,28 @@
 (function() {
-    function RoomCtrl(Room, Message, $uibModal) {
+    function RoomCtrl($cookies, Room, Message, $uibModal) {
         var $ctrl = this;
         $ctrl.rooms = Room.all;
-        $ctrl.messages = [];
+        $ctrl.messages = null;
+        $ctrl.currentRoom = null;
 
-        $ctrl.getRoom = function (roomId) {
-            $ctrl.messages = Message.getByRoomId(roomId);;
-            console.log(roomId, $ctrl.messages)
+        $ctrl.getRoom = function (room) {
+            $ctrl.messages = Message.getByRoomId(room.$id);
+            $ctrl.currentRoom = room;
+        };
+
+        $ctrl.newMsg = function (newMessage) {
+            var currentUser = $cookies.get('blocChatCurrentUser');
+
+            if (newMessage != '') {
+                var message = {
+                    content: newMessage,
+                    roomId: $ctrl.currentRoom.$id,
+                    sentAt: firebase.database.ServerValue.TIMESTAMP,
+                    username: currentUser
+                };
+                Message.send(message);
+                $ctrl.$setPristine();
+            }
         };
 
         $ctrl.open = function () {
@@ -24,5 +40,5 @@
 
     angular
         .module('blocChat')
-        .controller('RoomCtrl', ['Room', 'Message', '$uibModal', RoomCtrl]);
+        .controller('RoomCtrl', ['$cookies', 'Room', 'Message', '$uibModal', RoomCtrl]);
 })();

@@ -5,13 +5,12 @@ html, body, .container-fluid, #main-row {
 .col-md-4 {
     background: rgba(71, 135, 198, 0.5);
     height: 100%;
-    /*position: relative;*/
+    max-width: 345px;
 }
 
 .col-md-4 .button {
     position: absolute;
     top: 0;
-    /*float: right;*/
     margin-left: 60%;
     margin-top: 0.95cm;
     margin-right: 5%;
@@ -31,24 +30,9 @@ html, body, .container-fluid, #main-row {
     overflow: hidden;
 }
 
-/*.col-md-8 table {
-    background-color: #D4D4D4;
-    width: 100%;
-}*/
-
-/*.col-md-8, .messages {
-    width: 65%
-}*/
-
 .col-md-8 h3 {
     margin-left: 0.25cm;
 }
-
-/*.table-responsive {
-    background-color: #D4D4D4;
-    right: 0;
-    width: 100%;
-}*/
 
 .username, .message-sent, .time-sent {
     display: inline;
@@ -70,4 +54,11 @@ html, body, .container-fluid, #main-row {
 
 .col-md-8 tr:nth-child(odd) {
     background: #fff
+}
+
+.message-footer {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 2px;
+    margin-right: 1em;
 }

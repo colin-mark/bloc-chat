@@ -6,6 +6,8 @@
 
         Room.all = rooms;
 
+        Room.name = ref;
+
         Room.add = function(room) {
             rooms.$add(room);
         }
